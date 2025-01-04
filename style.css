@@ -1,0 +1,85 @@
+/* Import Google Font - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:wght@100..900&family=Outfit:wght@100..900&family=Prata&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(#EEEEFF, #C8C7FF);
+}
+
+.chatbot-popup {
+  width: 420px;
+  background: #fff;
+  /* The overflow: hidden; property is used in .chatbot-popup but not in .header-info .chatbot-logo because of the different contexts and purposes of these elements:
+
+  .chatbot-popup:
+
+  Purpose: This is a container element that may contain various child elements, including text, images, and other content.
+  Reason for overflow: hidden;: To ensure that any content that overflows the boundaries of the .chatbot-popup respects the rounded corners created by border-radius: 15px;. This prevents any child elements from visually breaking the rounded corners effect.
+  .header-info .chatbot-logo:
+
+  Purpose: This is a smaller, self-contained element (an SVG logo) that is unlikely to have overflowing content.
+  Reason for not needing overflow: hidden;: Since the .chatbot-logo is an SVG with a fixed size and does not contain other elements that might overflow, there is no need to use overflow: hidden;. The border-radius: 50%; is sufficient to create a circular shape for the logo. */
+  overflow: hidden;
+  border-radius: 15px;
+  /* box-shadow: offset-x offset-y blur-radius spread-radius color; */
+  /* 0: Horizontal offset (no horizontal shift)
+    32px: Vertical offset (shifted down by 32px)
+    64px: Blur radius (medium blur effect)
+    -48px: Spread radius (shrinks the shadow)
+    rgba(0, 0, 0, 0.5): Color (black with 50% opacity) */
+  box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1), 0 32px 64px -48px rgba(0, 0, 0, 0.5)
+}
+
+.chat-header {
+  display: flex;
+  /* The align-items property in CSS is used to align flex items along the cross axis (vertical axis by default) of the flex container. It is used within a flex container to control the alignment of items within that container. */
+  align-items: center;
+  background: #5350C4;
+  padding: 15px 22px;
+  justify-content: space-between;
+}
+
+.chat-header .header-info {
+  display: flex;
+  /* The gap property in CSS is used to define the spacing between items in a flex or grid container. In this context, it is used to set the space between the flex items within the .header-info container. 
+  gap: 10px;: This sets a 10-pixel space between each flex item inside the .header-info container.
+  */
+  gap: 10px;
+  align-items: center;
+}
+
+.header-info .chatbot-logo {
+  height: 35px;
+  width: 35px;
+  padding: 6px;
+  /* The fill property is used to set the color of an SVG shape */
+  fill: #5350C4;
+  /* flex-shrink:
+
+  Purpose: The flex-shrink property specifies how much a flex item should shrink relative to the rest of the flex items inside a flex container when there is not enough space.
+  Value: 0 means the item will not shrink at all, even if there is not enough space in the flex container.
+  Example: flex-shrink: 0; ensures that the .chatbot-logo element will maintain its size and not shrink when the flex container is resized. */
+  flex-shrink: 0;
+  background: #fff;
+  border-radius: 50%;
+}
+
+
+ 
+
+
+
+
+
+
+
