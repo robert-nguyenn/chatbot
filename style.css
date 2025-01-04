@@ -74,6 +74,86 @@ body {
   border-radius: 50%;
 }
 
+.header-info .logo-text {
+  color: #fff;
+  font-size: 1.31rem;
+  font-weight: 600;
+}
+
+.chat-header #close-chatbot {
+  /* se border: none; to remove default borders from elements like buttons or input fields for a cleaner look. */
+  border: none;
+  color: #fff;
+  height: 40px;
+  width: 40px;
+  font-size: 1.9rem;
+  margin-right: -10px;
+  padding-top:2px;
+  cursor: pointer;
+  border-radius: 50%;
+  background: none;
+  transition: 0.2s ease;
+}
+
+.chat-header #close-chatbot:hover {
+  background: #3d39ac;
+}
+
+.chat-body {
+  padding: 25px 22px;
+  display: flex;
+  gap: 20px;
+  height: 460px;
+  margin-bottom: 82px;
+  /* The overflow-y: auto; property is used to control the vertical overflow of the .chat-body element. Here's why it is needed in this context:
+
+  Purpose of overflow-y: auto;:
+  Enable Scrolling: It allows the .chat-body to become scrollable if the content exceeds the height of the container (460px in this case). This ensures that all content can be accessed by the user, even if it doesn't fit within the fixed height. */
+  overflow-y: auto;
+  flex-direction: column;
+}
+
+.chat-body .message {
+  display: flex;
+  gap: 11px;
+  align-items: center;
+}
+
+.chat-body .bot-message .bot-avatar {
+  height: 35px;
+  width: 35px;
+  padding: 6px;
+  fill: #fff;
+  flex-shrink: 0;
+  margin-bottom: 2px;
+  /* The align-self property in CSS is used to override the align-items property for a specific flex item. It allows you to control the alignment of individual flex items along the cross axis (vertical axis by default) within a flex container */
+  align-self: flex-end;
+  background: #5350C4;
+  border-radius: 50%;
+}
+
+.chat-body .user-message {
+  /* When you remove flex-direction: column; from the .user-message class, the default flex-direction: row; is applied. This changes the alignment context for align-items.
+
+  Explanation:
+  flex-direction: row; (default): The align-items property aligns items along the cross axis, which is vertical in this case. Since the default direction is horizontal, align-items: flex-end; would try to align items at the bottom of the container, but since the items are laid out horizontally, this may not have the intended effect.
+  flex-direction: column;: The align-items property aligns items along the cross axis, which is horizontal in this case. With flex-direction: column;, align-items: flex-end; aligns the items to the right end of the container. */
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.chat-body .message .message-text {
+  padding: 12px 16px;
+  max-width: 75%;
+  font-size: 0.95rem;
+}
+
+.chat-body
+
+.chat-footer {
+  position: absolute;
+}
+
 
  
 
