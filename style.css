@@ -148,6 +148,10 @@ body {
   font-size: 0.95rem;
 }
 
+.chat-body .bot-message.thinking .message-text {
+  padding: 2px 16px;
+}
+
 .chat-body .bot-message .message-text {
   background: #F2F2FF;
   border-radius: 13px 13px 13px 3px;
@@ -171,6 +175,10 @@ body {
   border-radius: 50%;
   background: #6F6BC2;
   animation: dotPulse 1.8s ease-in-out infinite;
+  /* dotPulse: The name of the animation. This corresponds to a @keyframes rule defined elsewhere in the CSS that describes the animation's keyframes.
+  1.8s: The duration of the animation. This means the animation will take 1.8 seconds to complete one cycle.
+  ease-in-out: The timing function. This specifies the speed curve of the animation. ease-in-out starts slowly, speeds up in the middle, and slows down again at the end.
+  infinite: The iteration count. This means the animation will repeat infinitely. */
 }
 
 .chat-body .bot-message .thinking-indicator .dot:nth-child(1) {
@@ -188,6 +196,7 @@ body {
 @keyframes dotPulse {
   0%, 44% {
     transform: translateY(0);
+    /* No change in opacity (default opacity is 1). */
   }
   28% {
     opacity: 0.4;
