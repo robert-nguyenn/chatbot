@@ -17,6 +17,7 @@ body {
 }
 
 .chatbot-popup {
+  position: relative;
   width: 420px;
   background: #fff;
   /* The overflow: hidden; property is used in .chatbot-popup but not in .header-info .chatbot-logo because of the different contexts and purposes of these elements:
