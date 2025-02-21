@@ -10,51 +10,32 @@
 
 body {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background: linear-gradient(#EEEEFF, #C8C7FF);
+  align-items: center; /*Vertically centers the child elements along the cross axis (vertical axis, by default).*/
+  justify-content: center;  /*Horizontally centers the child elements along the main axis (horizontal axis, by default).*/
+  min-height: 100vh; /*Ensures the body takes up at least the full height of the viewport (100% of the visible screen height).*/
+  background: linear-gradient(#EEEEFF, #C8C7FF); /*Applies a vertical linear gradient as the background. It smoothly transitions. Giving the page a subtle, visually appealing backdrop.
+  */
 }
 
 .chatbot-popup {
   position: relative;
   width: 420px;
   background: #fff;
-  /* The overflow: hidden; property is used in .chatbot-popup but not in .header-info .chatbot-logo because of the different contexts and purposes of these elements:
-
-  .chatbot-popup:
-
-  Purpose: This is a container element that may contain various child elements, including text, images, and other content.
-  Reason for overflow: hidden;: To ensure that any content that overflows the boundaries of the .chatbot-popup respects the rounded corners created by border-radius: 15px;. This prevents any child elements from visually breaking the rounded corners effect.
-  .header-info .chatbot-logo:
-
-  Purpose: This is a smaller, self-contained element (an SVG logo) that is unlikely to have overflowing content.
-  Reason for not needing overflow: hidden;: Since the .chatbot-logo is an SVG with a fixed size and does not contain other elements that might overflow, there is no need to use overflow: hidden;. The border-radius: 50%; is sufficient to create a circular shape for the logo. */
-  overflow: hidden;
+  overflow: hidden; /*Hides any content that overflows the boundaries of the element, ensuring a clean, contained appearance.*/
   border-radius: 15px;
-  /* box-shadow: offset-x offset-y blur-radius spread-radius color; */
-  /* 0: Horizontal offset (no horizontal shift)
-    32px: Vertical offset (shifted down by 32px)
-    64px: Blur radius (medium blur effect)
-    -48px: Spread radius (shrinks the shadow)
-    rgba(0, 0, 0, 0.5): Color (black with 50% opacity) */
-  box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1), 0 32px 64px -48px rgba(0, 0, 0, 0.5)
+  box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1), 0 32px 64px -48px rgba(0, 0, 0, 0.9);
 }
 
 .chat-header {
   display: flex;
-  /* The align-items property in CSS is used to align flex items along the cross axis (vertical axis by default) of the flex container. It is used within a flex container to control the alignment of items within that container. */
-  align-items: center;
   background: #5350C4;
-  padding: 15px 22px;
+  align-items: center;
   justify-content: space-between;
+  padding: 15px 22px;
 }
 
 .chat-header .header-info {
   display: flex;
-  /* The gap property in CSS is used to define the spacing between items in a flex or grid container. In this context, it is used to set the space between the flex items within the .header-info container. 
-  gap: 10px;: This sets a 10-pixel space between each flex item inside the .header-info container.
-  */
   gap: 10px;
   align-items: center;
 }
@@ -62,34 +43,27 @@ body {
 .header-info .chatbot-logo {
   height: 35px;
   width: 35px;
-  padding: 6px;
-  /* The fill property is used to set the color of an SVG shape */
-  fill: #5350C4;
-  /* flex-shrink:
-
-  Purpose: The flex-shrink property specifies how much a flex item should shrink relative to the rest of the flex items inside a flex container when there is not enough space.
-  Value: 0 means the item will not shrink at all, even if there is not enough space in the flex container.
-  Example: flex-shrink: 0; ensures that the .chatbot-logo element will maintain its size and not shrink when the flex container is resized. */
-  flex-shrink: 0;
   background: #fff;
+  fill: #5350C4; /*This property is typically used with SVG elements. It sets the color that fills the shape(s) inside an SVG.*/
+  flex-shrink: 0; /*This property controls how much a flex item should shrink relative to other items when there's insufficient space in a flex container.*/
   border-radius: 50%;
+  padding: 6px;
 }
 
 .header-info .logo-text {
   color: #fff;
   font-size: 1.31rem;
-  font-weight: 600;
+  font-weight: 600px;
 }
 
 .chat-header #close-chatbot {
-  /* se border: none; to remove default borders from elements like buttons or input fields for a cleaner look. */
-  border: none;
+  border: none; /*Removes the default border around the button.*/
   color: #fff;
   height: 40px;
   width: 40px;
   font-size: 1.9rem;
   margin-right: -10px;
-  padding-top:2px;
+  padding-top: 2px;
   cursor: pointer;
   border-radius: 50%;
   background: none;
@@ -103,15 +77,11 @@ body {
 .chat-body {
   padding: 25px 22px;
   display: flex;
-  gap: 20px;
-  height: 460px;
-  margin-bottom: 82px;
-  /* The overflow-y: auto; property is used to control the vertical overflow of the .chat-body element. Here's why it is needed in this context:
-
-  Purpose of overflow-y: auto;:
-  Enable Scrolling: It allows the .chat-body to become scrollable if the content exceeds the height of the container (460px in this case). This ensures that all content can be accessed by the user, even if it doesn't fit within the fixed height. */
+  flex-direction: column; /*Stacks the child elements vertically (from top to bottom), which is typical for chat messages.*/
   overflow-y: auto;
-  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 82px;
+  height: 460px;
 }
 
 .chat-body .message {
@@ -125,22 +95,16 @@ body {
   width: 35px;
   padding: 6px;
   fill: #fff;
-  flex-shrink: 0;
+  flex-shrink: 0; /*This property controls how much a flex item should shrink relative to other items when there's insufficient space in a flex container.*/
+  align-items: flex-end; /*Aligns the child elements along the cross axis (vertical axis, by default) to the end of the flex container.*/
   margin-bottom: 2px;
-  /* The align-self property in CSS is used to override the align-items property for a specific flex item. It allows you to control the alignment of individual flex items along the cross axis (vertical axis by default) within a flex container */
-  align-self: flex-end;
-  background: #5350C4;
   border-radius: 50%;
+  background: #5350C4;
 }
 
 .chat-body .user-message {
-  /* When you remove flex-direction: column; from the .user-message class, the default flex-direction: row; is applied. This changes the alignment context for align-items.
-
-  Explanation:
-  flex-direction: row; (default): The align-items property aligns items along the cross axis, which is vertical in this case. Since the default direction is horizontal, align-items: flex-end; would try to align items at the bottom of the container, but since the items are laid out horizontally, this may not have the intended effect.
-  flex-direction: column;: The align-items property aligns items along the cross axis, which is horizontal in this case. With flex-direction: column;, align-items: flex-end; aligns the items to the right end of the container. */
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-end; /*CSS flex properties are not inherited from parent flex containers. Each flex container establishes its own independent layout context for its children. Therefore, even though .chat-body uses flex-direction: column;, that property does not "trickle down" to nested flex containers like .user-message.*/
 }
 
 .chat-body .message .message-text {
@@ -149,14 +113,22 @@ body {
   font-size: 0.95rem;
 }
 
+.chat-body .bot-message .message-text {
+  background: #F2F2FF;
+  border-radius: 13px 13px 13px 3px; /*The first value sets the top-left corner, the second value sets the top-right corner, the third value sets the bottom-right corner, and the fourth value sets the bottom-left corner.*/
+}
+
 .chat-body .bot-message.thinking .message-text {
   padding: 2px 16px;
 }
 
-.chat-body .bot-message .message-text {
-  background: #F2F2FF;
-  border-radius: 13px 13px 13px 3px;
-}
+/*In CSS, when two class names are concatenated with no space (as in .bot-message.thinking), it selects an element that has both classes applied. That is, the element must have the class "bot-message" and the class "thinking" at the same time.
+
+Why No Space?
+Same Element vs. Descendant:
+Without a Space: .bot-message.thinking means the same element has both classes.
+With a Space (e.g., .bot-message .thinking): This would target an element with the "thinking" class that is a descendant of an element with the "bot-message" class, which is a different selection.
+*/
 
 .chat-body .user-message .message-text {
   color: #fff;
@@ -170,52 +142,111 @@ body {
   padding-block: 15px;
 }
 
-.chat-body .bot-message .thinking-indicator .dot{
+.chat-body .bot-message .thinking-indicator .dot {
   height: 7px;
   width: 7px;
+  opacity: 0.7;
   border-radius: 50%;
   background: #6F6BC2;
   animation: dotPulse 1.8s ease-in-out infinite;
-  /* dotPulse: The name of the animation. This corresponds to a @keyframes rule defined elsewhere in the CSS that describes the animation's keyframes.
-  1.8s: The duration of the animation. This means the animation will take 1.8 seconds to complete one cycle.
-  ease-in-out: The timing function. This specifies the speed curve of the animation. ease-in-out starts slowly, speeds up in the middle, and slows down again at the end.
-  infinite: The iteration count. This means the animation will repeat infinitely. */
 }
 
 .chat-body .bot-message .thinking-indicator .dot:nth-child(1) {
   animation-delay: 0.2s;
 }
-
 .chat-body .bot-message .thinking-indicator .dot:nth-child(2) {
   animation-delay: 0.3s;
 }
-
 .chat-body .bot-message .thinking-indicator .dot:nth-child(3) {
   animation-delay: 0.4s;
 }
 
 @keyframes dotPulse {
   0%, 44% {
-    transform: translateY(0);
-    /* No change in opacity (default opacity is 1). */
+    transform: translateY(0)
   }
   28% {
     opacity: 0.4;
-    transform: translateY(-4px);
+    transform: translateY(-4px)
   }
   44% {
     opacity: 0.2;
   }
+  /*With 44%: The dot quickly transitions and then holds its final state for a significant portion of the animation duration, creating a pulsing effect with a pause.
+  With 100%: The animation transitions more gradually over the entire duration, leading to a smoother, continuous change without an extended pause.*/
 }
 
 .chat-footer {
-  position: absolute;
+  position: absolute; 
   bottom: 0;
   width: 100%;
+  background: #fff;
+  padding: 15px 22px 20px;
+}
+
+.chat-footer .chat-form {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 32px;
+  outline: 1px solid #CCCCE5;
+}
+
+.chat-footer .chat-form:focus-within { /*The :focus-within pseudo-class matches an element if the element or any of its descendants are focused.*/
+  outline: 1px solid #5350C4;
+}
+
+.chat-form .message-input {
+  border: none;
+  outline: none;
+  height: 47px;
+  width: 100%;
+  resize: none; /*Prevents the user from resizing the textarea.*/
+  font-size: 0.95rem;
+  padding: 14px 0 13px 18px;
+  border-radius: inherit; /*Inherits the border-radius property from the parent element.*/
+}
+
+.chat-form .chat-controls {
+  display: flex;
+  height: 47px;
+  align-items: center;
+  gap: 3px;
+  align-self: flex-end; /*Aligns the flex container along the cross axis (vertical axis, by default) to the end of the flex container.*/
+  padding: 6px;
+}
+
+.chat-form .chat-controls button {
+  height: 35px;
+  width: 35px;
+  border: none;
+  font-size: 1.15rem; 
+  cursor: pointer;
+  background: none;
+  color: #706DB0;
+  border-radius: 50%;
+  transition: 0.2s ease;
+}
+
+.chat-form .chat-controls #send-message {
+  background: #5350C4;
+  display: none;
+  color: #fff;
+}
+
+.chat-form .message-input:valid~.chat-controls #send-message { 
+  display: block;
+}
+
+.chat-form .chat-controls #send-message:hover {
+  background: #3d39ac;
+}
+
+.chat-form .chat-controls button:hover {
+  background: #f1f1ff;
 }
 
 
- 
 
 
 
